@@ -2,6 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+
+
+// const [currentUser, setCurrentUser] = useState({});
+
+// const handleCurrentUser = getUser =>{
+//   setCurrentUser(getUser)
+// }
 
 const myRoute = createBrowserRouter([
     {
@@ -23,6 +31,10 @@ const myRoute = createBrowserRouter([
         {
             path:"/order",
             element: <div>order</div>
+        },
+        {
+            path:"/dashboard",
+            element: <Dashboard></Dashboard>
         },
       ]
     },

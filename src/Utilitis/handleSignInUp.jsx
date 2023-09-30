@@ -1,5 +1,6 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "./firebase.init";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 const handleSignUp = e => {
     e.preventDefault()
@@ -28,4 +29,12 @@ const handleLoginIn = e => {
 }
 
 
-export { handleSignUp, handleLoginIn };
+const handlaGoogleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider()
+    signInWithPopup(auth, googleProvider)
+        .then(result => <Dashboard user={result}></Dashboard>)
+        .catch(error => console.log(error.massage))
+    
+}
+
+export { handleSignUp, handleLoginIn, handlaGoogleSignIn};
